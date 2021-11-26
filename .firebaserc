@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "illico-mediko": {
+      "hosting": {
+        "illico": [
+          "illico-mediko"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "illico-mediko"
+  }
+}

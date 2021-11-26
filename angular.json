@@ -110,6 +110,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "illico:build:production",
+            "firebaseProject": "illico-mediko",
+            "firebaseHostingSite": "illico-mediko"
+          }
         }
       }
     }
