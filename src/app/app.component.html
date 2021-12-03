@@ -8,9 +8,9 @@
     [nzTrigger]="null"
   >
     <div class="sidebar-logo">
-      <a href="https://ng.ant.design/" target="_blank">
-        <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
-        <h1>Ant Design Of Angular</h1>
+      <a href="/welcome">
+        <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-heartbeat-star-medical-logo.png" alt="logo" />
+        <h1> Illico </h1>
       </a>
     </div>
     <ul
@@ -19,23 +19,17 @@
       nzMode="inline"
       [nzInlineCollapsed]="isCollapsed"
     >
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+      <li nz-submenu nzTitle="Patients" nzIcon="user">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
+            <a routerLink="/clients">List</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Clients" nzIcon="form">
+      <li nz-submenu nzTitle="Doctors" nzIcon="medicine-box">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/clients">Liste</a>
+            <a routerLink="/doctors">List</a>
           </li>
         </ul>
       </li>
