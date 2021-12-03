@@ -5,10 +5,11 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { IndexComponent } from './index/index.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   imports: [ClientsRoutingModule, NzListModule, NzSkeletonModule, CommonModule],
-  declarations: [IndexComponent],
+  declarations: [IndexComponent, EditComponent],
   exports: [IndexComponent],
 })
 export class ClientsModule {}
