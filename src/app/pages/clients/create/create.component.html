@@ -5,8 +5,4 @@
   </a>
 </nz-button-group>
 
-<user-form
-  (onSubmit)="handleSubmit($event)"
-  [initialValues]="patient"
-  *ngIf="patient"
-></user-form>
+<user-form (onSubmit)="handleSubmit($event)"></user-form>

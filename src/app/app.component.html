@@ -34,8 +34,11 @@
       </li>
       <li nz-submenu nzOpen nzTitle="Clients" nzIcon="form">
         <ul>
-          <li nz-menu-item nzMatchRouter>
+          <li nz-menu-item nzMatchRouterExact>
             <a routerLink="/clients">Liste</a>
+          </li>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/clients/create">Créer</a>
           </li>
         </ul>
       </li>

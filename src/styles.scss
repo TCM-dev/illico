@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+form {
+  margin: 2em 0;
+}
+
+input {
+  border-radius: 4px;
+  border: solid 1px gray;
+  height: 40px;
+  width: 100%;
+  padding: 0 1em;
+  margin-bottom: 2em;
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42a948; /* green */
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.ant-btn-group {
+  margin-bottom: 1em;
+}
