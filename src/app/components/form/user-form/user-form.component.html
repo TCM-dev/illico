@@ -1,0 +1,41 @@
+<form #userForm="ngForm" (ngSubmit)="submit(userForm)">
+  <label>
+    Prénom
+    <input
+      type="text"
+      [(ngModel)]="patient.firstname"
+      #firstname="ngModel"
+      name="firstname"
+      required
+      [readonly]="readonly"
+    />
+  </label>
+
+  <div
+    [hidden]="firstname.valid || firstname.pristine"
+    class="alert alert-danger"
+  >
+    Le prénom est requis
+  </div>
+
+  <label>
+    Nom
+    <input
+      type="text"
+      [(ngModel)]="patient.lastname"
+      #lastname="ngModel"
+      name="lastname"
+      required
+      [readonly]="readonly"
+    />
+  </label>
+
+  <div
+    [hidden]="lastname.valid || lastname.pristine"
+    class="alert alert-danger"
+  >
+    Le nom est requis
+  </div>
+
+  <button nz-button nzSize="large" nzType="primary" *ngIf="!readonly">Sauvegarder</button>
+</form>

@@ -6,10 +6,34 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { IndexComponent } from './index/index.component';
 import { EditComponent } from './edit/edit.component';
+import { UserFormComponent } from '../../components/form/user-form/user-form.component';
+import { CreateComponent } from './create/create.component';
+import { FormsModule } from '@angular/forms';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { ReadComponent } from './read/read.component';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
 
 @NgModule({
-  imports: [ClientsRoutingModule, NzListModule, NzSkeletonModule, CommonModule],
-  declarations: [IndexComponent, EditComponent],
+  imports: [
+    ClientsRoutingModule,
+    NzListModule,
+    NzSkeletonModule,
+    CommonModule,
+    FormsModule,
+    NzButtonModule,
+    NzIconModule,
+    NzTableModule,
+    NzDividerModule
+  ],
+  declarations: [
+    IndexComponent,
+    EditComponent,
+    UserFormComponent,
+    CreateComponent,
+    ReadComponent,
+  ],
   exports: [IndexComponent],
 })
 export class ClientsModule {}

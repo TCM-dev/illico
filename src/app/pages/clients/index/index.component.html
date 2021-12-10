@@ -1,8 +1,15 @@
+<nz-button-group>
+  <a nz-button nzType="primary" href="/clients/create"> Créer un patient </a>
+</nz-button-group>
+
 <div>
-  <ul nz-list nzBordered nzSize="large" [nzLoading]="loading">
+  <!-- <ul nz-list nzBordered nzSize="large" [nzLoading]="loading">
     <nz-list-header>Header</nz-list-header>
     <li nz-list-item *ngFor="let patient of patients" nzNoFlex>
       <ul nz-list-item-actions>
+        <nz-list-item-action>
+          <a routerLink="/clients/show/{{ patient.id }}">show</a>
+        </nz-list-item-action>
         <nz-list-item-action>
           <a routerLink="/clients/edit/{{ patient.id }}">edit</a>
         </nz-list-item-action>
@@ -13,5 +20,32 @@
       {{ patient.firstname }}
     </li>
     <nz-list-footer>Footer</nz-list-footer>
-  </ul>
+  </ul> -->
+
+  <nz-table #basicTable [nzData]="patients" [nzLoading]="loading">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.firstname }}</td>
+        <td>{{ data.lastname }}</td>
+        <td>
+          <a routerLink="/clients/show/{{ data.id }}">show</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a routerLink="/clients/edit/{{ data.id }}">edit</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a (click)="remove(data.id)">remove</a>
+          <!-- 
+          <a>Action 一 {{ data.name }}</a>
+          <nz-divider nzType="vertical"></nz-divider>
+          <a>Delete</a> -->
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
 </div>

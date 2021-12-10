@@ -21,15 +21,18 @@
     >
       <li nz-submenu nzTitle="Patients" nzIcon="user">
         <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/clients">List</a>
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/clients">Liste</a>
+          </li>  
+          <li nz-menu-item nzMatchRouterExact>
+            <a routerLink="/clients/create">Créer</a>
           </li>
         </ul>
       </li>
-      <li nz-submenu nzTitle="Doctors" nzIcon="medicine-box">
+      <li nz-submenu nzTitle="Docteurs" nzIcon="medicine-box">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/doctors">List</a>
+            <a routerLink="/doctors">Liste</a>
           </li>
         </ul>
       </li>
