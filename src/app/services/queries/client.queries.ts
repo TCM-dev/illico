@@ -1,15 +1,20 @@
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Injectable } from '@angular/core';
 import { Client } from 'src/app/models/client';
+import { CqrsService } from '../cqrs/cqrs.service';
 
-export const getClientsObservable = (firestore: AngularFirestore) => {
-  return firestore
-    .collection<Client>('clients')
-    .valueChanges({ idField: 'id' });
-};
+@Injectable({
+  providedIn: 'root',
+})
+export default class ClientQueriesService extends CqrsService {
+  getObservable = () => {
+    return this.firestore
+      .collection<Client>('clients')
+      .valueChanges({ idField: 'id' });
+  };
 
-export const getClientObservableById = (
-  firestore: AngularFirestore,
-  id: string
-) => {
-  return firestore.doc<Client>('clients/' + id).valueChanges({ idField: 'id' });
-};
+  getObservableById = (id: string) => {
+    return this.firestore
+      .doc<Client>('clients/' + id)
+      .valueChanges({ idField: 'id' });
+  };
+}

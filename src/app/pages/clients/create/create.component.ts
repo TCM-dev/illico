@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Client } from 'src/app/models/client';
-import { createClient } from 'src/app/services/commands/client.commands';
+import ClientCommandService from 'src/app/services/commands/client.commands';
 
 @Component({
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent implements OnInit {
-  firestore: AngularFirestore;
+  clientCommandService: ClientCommandService;
 
-  constructor(firestore: AngularFirestore) {
-    this.firestore = firestore;
+  constructor(clientCommandService: ClientCommandService) {
+    this.clientCommandService = clientCommandService;
   }
 
   ngOnInit(): void {}
 
   handleSubmit(client: Client) {
-    createClient(this.firestore, client);
+    this.clientCommandService.create(client);
   }
 }
