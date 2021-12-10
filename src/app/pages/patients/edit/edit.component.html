@@ -1,12 +1,12 @@
 <nz-button-group>
-  <a nz-button nzType="link" href="/clients">
+  <a nz-button nzType="link" href="/patients">
     <i nz-icon nzType="left"></i>
     Revenir à la liste
   </a>
 </nz-button-group>
 
-<client-form
+<patient-form
   (onSubmit)="handleSubmit($event)"
-  [initialValues]="client"
-  *ngIf="client"
-></client-form>
+  [initialValues]="patient"
+  *ngIf="patient"
+></patient-form>

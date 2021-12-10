@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
-import { ClientsRoutingModule } from './clients-routing.module';
+import { PatientsRoutingModule } from './patients-routing.module';
 import { IndexComponent } from './index/index.component';
 import { EditComponent } from './edit/edit.component';
-import { ClientFormComponent } from '../../components/form/client-form/client-form.component';
+import { PatientFormComponent } from '../../components/form/patient-form/patient-form.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -18,7 +18,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @NgModule({
   imports: [
-    ClientsRoutingModule,
+    PatientsRoutingModule,
     NzListModule,
     NzSkeletonModule,
     CommonModule,
@@ -32,10 +32,10 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
   declarations: [
     IndexComponent,
     EditComponent,
-    ClientFormComponent,
+    PatientFormComponent,
     CreateComponent,
     ReadComponent,
   ],
   exports: [IndexComponent],
 })
-export class ClientsModule {}
+export class PatientsModule {}

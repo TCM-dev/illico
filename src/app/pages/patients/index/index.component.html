@@ -1,9 +1,9 @@
 <nz-button-group>
-  <a nz-button nzType="primary" href="/clients/create"> Créer un patient </a>
+  <a nz-button nzType="primary" href="/patients/create"> Créer un patient </a>
 </nz-button-group>
 
 <div>
-  <nz-table #basicTable [nzData]="clients" [nzLoading]="loading">
+  <nz-table #basicTable [nzData]="patients" [nzLoading]="loading">
     <thead>
       <tr>
         <th>Firstname</th>
@@ -16,9 +16,9 @@
         <td>{{ data.firstname }}</td>
         <td>{{ data.lastname }}</td>
         <td>
-          <a routerLink="/clients/show/{{ data.id }}">Voir</a>
+          <a routerLink="/patients/show/{{ data.id }}">Voir</a>
           <nz-divider nzType="vertical"></nz-divider>
-          <a routerLink="/clients/edit/{{ data.id }}">Editer</a>
+          <a routerLink="/patients/edit/{{ data.id }}">Editer</a>
           <nz-divider nzType="vertical"></nz-divider>
           <a (click)="remove(data.id)">Supprimer</a>
         </td>

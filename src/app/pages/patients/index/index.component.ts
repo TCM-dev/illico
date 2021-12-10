@@ -1,26 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
-import { Client } from 'src/app/models/client';
-import ClientCommandService from 'src/app/services/cqrs/commands/client.commands';
+import PatientQueriesService from 'src/app/services/cqrs/queries/patient.queries';
+import { Patient } from 'src/app/models/patient';
+import PatientCommandService from 'src/app/services/cqrs/commands/patient.commands';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
-  selector: 'clients-index',
+  selector: 'patients-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
   loading: boolean = true;
-  clients: Client[] = [];
+  patients: Patient[] = [];
 
   constructor(
     private message: NzMessageService,
-    private clientCommandService: ClientCommandService,
-    clientQueriesService: ClientQueriesService
+    private patientCommandService: PatientCommandService,
+    patientQueriesService: PatientQueriesService
   ) {
-    clientQueriesService.getObservable().subscribe((clients) => {
-      this.clients = clients;
+    patientQueriesService.getObservable().subscribe((patients) => {
+      this.patients = patients;
       this.loading = false;
     });
   }
@@ -28,7 +28,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {}
 
   remove(id: string) {
-    this.clientCommandService
+    this.patientCommandService
       .removeById(id)
       .then(() => {
         this.message.success('Patient supprimé avec succès');

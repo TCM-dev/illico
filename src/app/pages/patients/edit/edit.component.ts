@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { Client } from 'src/app/models/client';
-import ClientCommandService from 'src/app/services/cqrs/commands/client.commands';
-import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
+import { Patient } from 'src/app/models/patient';
+import PatientCommandService from 'src/app/services/cqrs/commands/patient.commands';
+import PatientQueriesService from 'src/app/services/cqrs/queries/patient.queries';
 
 @Component({
   templateUrl: './edit.component.html',
@@ -12,11 +12,11 @@ import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
 })
 export class EditComponent implements OnInit {
   id?: string | null;
-  client?: Client;
+  patient?: Patient;
 
   constructor(
-    private clientCommandService: ClientCommandService,
-    private clientQueriesService: ClientQueriesService,
+    private patientCommandService: PatientCommandService,
+    private patientQueriesService: PatientQueriesService,
     private route: ActivatedRoute,
     private router: Router,
     private message: NzMessageService
@@ -29,16 +29,16 @@ export class EditComponent implements OnInit {
       return;
     }
 
-    this.clientQueriesService
+    this.patientQueriesService
       .getObservableById(this.id)
-      .subscribe((client) => (this.client = client));
+      .subscribe((patient) => (this.patient = patient));
   }
 
-  handleSubmit(client: Client) {
-    this.clientCommandService
-      .update(client)
+  handleSubmit(patient: Patient) {
+    this.patientCommandService
+      .update(patient)
       .then(() => {
-        this.router.navigate(['/clients']);
+        this.router.navigate(['/patients']);
         this.message.success('Patient mis à jour avec succès');
       })
       .catch(() => {

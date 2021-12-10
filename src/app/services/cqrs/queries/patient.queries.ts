@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Client } from 'src/app/models/client';
+import { Patient } from 'src/app/models/patient';
 import { CqrsService } from '../cqrs.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export default class ClientQueriesService extends CqrsService {
+export default class PatientQueriesService extends CqrsService {
   getObservable = () => {
     return this.firestore
-      .collection<Client>('clients')
+      .collection<Patient>('patients')
       .valueChanges({ idField: 'id' });
   };
 
   getObservableById = (id: string) => {
     return this.firestore
-      .doc<Client>('clients/' + id)
+      .doc<Patient>('patients/' + id)
       .valueChanges({ idField: 'id' });
   };
 }

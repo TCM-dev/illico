@@ -2,31 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { Client } from 'src/app/models/client';
-import ClientCommandService from 'src/app/services/cqrs/commands/client.commands';
+import { Patient } from 'src/app/models/patient';
+import PatientCommandService from 'src/app/services/cqrs/commands/patient.commands';
 
 @Component({
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss'],
 })
 export class CreateComponent implements OnInit {
-  clientCommandService: ClientCommandService;
+  patientCommandService: PatientCommandService;
 
   constructor(
-    clientCommandService: ClientCommandService,
+    patientCommandService: PatientCommandService,
     private message: NzMessageService,
     private router: Router
   ) {
-    this.clientCommandService = clientCommandService;
+    this.patientCommandService = patientCommandService;
   }
 
   ngOnInit(): void {}
 
-  handleSubmit(client: Client) {
-    this.clientCommandService
-      .create(client)
+  handleSubmit(patient: Patient) {
+    this.patientCommandService
+      .create(patient)
       .then(() => {
-        this.router.navigate(['/clients']);
+        this.router.navigate(['/patients']);
         this.message.success('Patient crée avec succès');
       })
       .catch(() => {

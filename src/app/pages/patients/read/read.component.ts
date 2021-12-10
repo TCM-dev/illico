@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { Client } from 'src/app/models/client';
-import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
+import { Patient } from 'src/app/models/patient';
+import PatientQueriesService from 'src/app/services/cqrs/queries/patient.queries';
 
 @Component({
   templateUrl: './read.component.html',
@@ -11,10 +11,10 @@ import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
 })
 export class ReadComponent implements OnInit {
   id?: string | null;
-  client?: Client;
+  patient?: Patient;
 
   constructor(
-    private clientQueriesService: ClientQueriesService,
+    private patientQueriesService: PatientQueriesService,
     private route: ActivatedRoute
   ) {}
 
@@ -25,8 +25,8 @@ export class ReadComponent implements OnInit {
       return;
     }
 
-    this.clientQueriesService
+    this.patientQueriesService
       .getObservableById(this.id)
-      .subscribe((client) => (this.client = client));
+      .subscribe((patient) => (this.patient = patient));
   }
 }
