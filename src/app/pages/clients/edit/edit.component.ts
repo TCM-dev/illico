@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { Client } from 'src/app/models/client';
-import ClientCommandService from 'src/app/services/commands/client.commands';
-import ClientQueriesService from 'src/app/services/queries/client.queries';
+import ClientCommandService from 'src/app/services/cqrs/commands/client.commands';
+import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
 
 @Component({
   templateUrl: './edit.component.html',
@@ -16,7 +17,9 @@ export class EditComponent implements OnInit {
   constructor(
     private clientCommandService: ClientCommandService,
     private clientQueriesService: ClientQueriesService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private message: NzMessageService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +35,14 @@ export class EditComponent implements OnInit {
   }
 
   handleSubmit(client: Client) {
-    this.clientCommandService.update(client);
+    this.clientCommandService
+      .update(client)
+      .then(() => {
+        this.router.navigate(['/clients']);
+        this.message.success('Patient mis à jour avec succès');
+      })
+      .catch(() => {
+        this.message.error("Une erreur innatendue s'est produite");
+      });
   }
 }

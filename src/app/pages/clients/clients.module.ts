@@ -14,6 +14,7 @@ import { ReadComponent } from './read/read.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
     NzButtonModule,
     NzIconModule,
     NzTableModule,
-    NzDividerModule
+    NzDividerModule,
+    NzMessageModule
   ],
   declarations: [
     IndexComponent,

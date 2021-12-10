@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Client } from 'src/app/models/client';
-import { CqrsService } from '../cqrs/cqrs.service';
+import { CqrsService } from '../cqrs.service';
 
 @Injectable({
   providedIn: 'root',

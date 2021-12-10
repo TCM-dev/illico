@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { Client } from 'src/app/models/client';
-import ClientQueriesService from 'src/app/services/queries/client.queries';
+import ClientQueriesService from 'src/app/services/cqrs/queries/client.queries';
 
 @Component({
   templateUrl: './read.component.html',
