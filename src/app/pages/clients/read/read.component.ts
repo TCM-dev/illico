@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { Patient } from 'src/app/models/patient';
-import { getPatientObservableById } from 'src/app/services/queries/patient.queries';
+import { Client } from 'src/app/models/client';
+import { getClientObservableById } from 'src/app/services/queries/client.queries';
 
 @Component({
   templateUrl: './read.component.html',
@@ -11,7 +11,7 @@ import { getPatientObservableById } from 'src/app/services/queries/patient.queri
 export class ReadComponent implements OnInit {
   firestore: AngularFirestore;
   id?: string | null;
-  patient?: Patient;
+  client?: Client;
 
   constructor(firestore: AngularFirestore, private route: ActivatedRoute) {
     this.firestore = firestore;
@@ -24,8 +24,8 @@ export class ReadComponent implements OnInit {
       return;
     }
 
-    getPatientObservableById(this.firestore, this.id).subscribe(
-      (patient) => (this.patient = patient)
+    getClientObservableById(this.firestore, this.id).subscribe(
+      (client) => (this.client = client)
     );
   }
 }

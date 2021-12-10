@@ -6,7 +6,7 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { ClientsRoutingModule } from './clients-routing.module';
 import { IndexComponent } from './index/index.component';
 import { EditComponent } from './edit/edit.component';
-import { UserFormComponent } from '../../components/form/user-form/user-form.component';
+import { ClientFormComponent } from '../../components/form/client-form/client-form.component';
 import { CreateComponent } from './create/create.component';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -30,7 +30,7 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
   declarations: [
     IndexComponent,
     EditComponent,
-    UserFormComponent,
+    ClientFormComponent,
     CreateComponent,
     ReadComponent,
   ],

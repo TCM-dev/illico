@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
-import firebase from 'firebase/compat';
-import { Observable } from 'rxjs';
-import { Patient } from 'src/app/models/patient';
-import { updatePatient } from 'src/app/services/commands/patient.commands';
-import { getPatientObservableById } from 'src/app/services/queries/patient.queries';
+import { Client } from 'src/app/models/client';
+import { updateClient } from 'src/app/services/commands/client.commands';
+import { getClientObservableById } from 'src/app/services/queries/client.queries';
 
 @Component({
   templateUrl: './edit.component.html',
@@ -14,7 +12,7 @@ import { getPatientObservableById } from 'src/app/services/queries/patient.queri
 export class EditComponent implements OnInit {
   firestore: AngularFirestore;
   id?: string | null;
-  patient?: Patient;
+  client?: Client;
 
   constructor(firestore: AngularFirestore, private route: ActivatedRoute) {
     this.firestore = firestore;
@@ -27,12 +25,12 @@ export class EditComponent implements OnInit {
       return;
     }
 
-    getPatientObservableById(this.firestore, this.id).subscribe(
-      (patient) => (this.patient = patient)
+    getClientObservableById(this.firestore, this.id).subscribe(
+      (client) => (this.client = client)
     );
   }
 
-  handleSubmit(patient: Patient) {
-    updatePatient(this.firestore, patient);
+  handleSubmit(client: Client) {
+    updateClient(this.firestore, client);
   }
 }

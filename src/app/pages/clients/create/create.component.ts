@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Patient } from 'src/app/models/patient';
-import { createPatient } from 'src/app/services/commands/patient.commands';
+import { Client } from 'src/app/models/client';
+import { createClient } from 'src/app/services/commands/client.commands';
 
 @Component({
   templateUrl: './create.component.html',
@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleSubmit(patient: Patient) {
-    createPatient(this.firestore, patient);
+  handleSubmit(client: Client) {
+    createClient(this.firestore, client);
   }
 }

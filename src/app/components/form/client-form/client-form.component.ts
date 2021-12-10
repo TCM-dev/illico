@@ -6,16 +6,16 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Patient } from 'src/app/models/patient';
+import { Client } from 'src/app/models/client';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'user-form',
-  templateUrl: './user-form.component.html',
-  styleUrls: ['./user-form.component.scss'],
+  selector: 'client-form',
+  templateUrl: './client-form.component.html',
+  styleUrls: ['./client-form.component.scss'],
 })
-export class UserFormComponent implements OnInit {
-  patient: Patient = {
+export class ClientFormComponent implements OnInit {
+  client: Client = {
     id: '',
     firstname: '',
     lastname: '',
@@ -23,21 +23,21 @@ export class UserFormComponent implements OnInit {
     birthdate: new Date(),
   };
 
-  @Output() onSubmit: EventEmitter<Patient> = new EventEmitter();
+  @Output() onSubmit: EventEmitter<Client> = new EventEmitter();
 
-  @Input() initialValues?: Patient;
+  @Input() initialValues?: Client;
   @Input() readonly?: boolean;
 
   constructor() {}
 
   ngOnInit(): void {
     if (this.initialValues) {
-      this.patient = this.initialValues;
+      this.client = this.initialValues;
     }
   }
 
   submit(ngform: NgForm) {
     // console.log(ngform)
-    this.onSubmit.emit(this.patient);
+    this.onSubmit.emit(this.client);
   }
 }

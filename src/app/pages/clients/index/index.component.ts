@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Patient } from 'src/app/models/patient';
-import { getPatientsObservable } from 'src/app/services/queries/patient.queries';
-import { removePatientById } from 'src/app/services/commands/patient.commands';
+import { getClientsObservable } from 'src/app/services/queries/client.queries';
+import { Client } from 'src/app/models/client';
+import { removeClientById } from 'src/app/services/commands/client.commands';
 
 @Component({
   selector: 'clients-index',
@@ -11,14 +11,14 @@ import { removePatientById } from 'src/app/services/commands/patient.commands';
 })
 export class IndexComponent implements OnInit {
   loading: boolean = true;
-  patients: Patient[] = [];
+  clients: Client[] = [];
   firestore: AngularFirestore;
 
   constructor(firestore: AngularFirestore) {
     this.firestore = firestore;
 
-    getPatientsObservable(firestore).subscribe((patients) => {
-      this.patients = patients;
+    getClientsObservable(firestore).subscribe((clients) => {
+      this.clients = clients;
       this.loading = false;
     });
   }
@@ -26,6 +26,6 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {}
 
   remove(id: string) {
-    removePatientById(this.firestore, id);
+    removeClientById(this.firestore, id);
   }
 }
