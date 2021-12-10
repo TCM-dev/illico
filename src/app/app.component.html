@@ -8,9 +8,12 @@
     [nzTrigger]="null"
   >
     <div class="sidebar-logo">
-      <a href="/welcome">
-        <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-heartbeat-star-medical-logo.png" alt="logo" />
-        <h1> Illico </h1>
+      <a href="/">
+        <img
+          src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-heartbeat-star-medical-logo.png"
+          alt="logo"
+        />
+        <h1>Illico</h1>
       </a>
     </div>
     <ul
@@ -23,7 +26,7 @@
         <ul>
           <li nz-menu-item nzMatchRouterExact>
             <a routerLink="/patients">Liste</a>
-          </li>  
+          </li>
           <li nz-menu-item nzMatchRouterExact>
             <a routerLink="/patients/create">Créer</a>
           </li>
@@ -37,6 +40,9 @@
         </ul>
       </li>
     </ul>
+    <button (click)="auth.logout({ returnTo: document.location.origin })">
+      Log out
+    </button>
   </nz-sider>
   <nz-layout class="right-layout">
     <nz-header>

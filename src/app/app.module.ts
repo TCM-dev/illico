@@ -21,11 +21,13 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { AuthModule } from '@auth0/auth0-angular';
+import { LoginComponent } from './pages/login/login.component';
 
 registerLocaleData(fr);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,6 +42,10 @@ registerLocaleData(fr);
     NzIconModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    AuthModule.forRoot({
+      domain: 'dev-o86qy-6c.us.auth0.com',
+      clientId: 'pDmZYPnFsWLgcIkPclp02g5SVhH5iBDW',
+    }),
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [{ provide: NZ_I18N, useValue: fr_FR }],
